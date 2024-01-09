@@ -30,4 +30,18 @@ public class ProduitService {
         }
         return null;
     }
+    public void mettreAjourProduit(Produit produitUpdate) {
+        Produit produitExist = findProduit(produitUpdate.getId());
+        if (produitExist == null) {
+            throw new IllegalArgumentException("product doesn't existe");
+        }
+
+        if (produitUpdate.getPrix() < 0 || produitUpdate.getQuantite() < 0) {
+            throw new IllegalArgumentException("price and quantity needs to be positive");
+        }
+
+        produitExist.setNom(produitUpdate.getNom());
+        produitExist.setPrix(produitUpdate.getPrix());
+        produitExist.setQuantite(produitUpdate.getQuantite());
+    }
 }

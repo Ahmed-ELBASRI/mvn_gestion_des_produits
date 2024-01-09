@@ -30,6 +30,9 @@ public class ProduitService {
         }
         return null;
     }
+    public List<Produit> getAllProduct() {
+        return new ArrayList<>(produits);
+    }
     public void mettreAjourProduit(Produit produitUpdate) {
         Produit produitExist = findProduit(produitUpdate.getId());
         if (produitExist == null) {

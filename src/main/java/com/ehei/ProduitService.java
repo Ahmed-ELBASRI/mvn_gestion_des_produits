@@ -44,4 +44,15 @@ public class ProduitService {
         produitExist.setPrix(produitUpdate.getPrix());
         produitExist.setQuantite(produitUpdate.getQuantite());
     }
+    public void deleteProduit(Long id) {
+    	Produit produitToRemove=null;
+        for (Produit produit : produits) {
+            if (produit.getId().equals(id)) {
+            	produitToRemove=produit;
+                break;
+            }
+        }
+        produits.remove(produitToRemove); 
+
+    }
 }

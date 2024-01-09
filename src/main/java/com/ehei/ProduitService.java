@@ -22,5 +22,12 @@ public class ProduitService {
 
         produits.add(produit);
     }
-    
+    public Produit findProduit(Long id) {
+        for (Produit produit : produits) {
+            if (produit.getId().equals(id)) {
+                return produit;
+            }
+        }
+        return null;
+    }
 }

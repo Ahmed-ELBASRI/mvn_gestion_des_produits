@@ -29,4 +29,14 @@ public class TestClass extends TestCase {
             assertEquals("the product that you are trying to add already exists", e.getMessage());
         }
     }
+    
+    @Test
+    public void testAjouterProduitValidation() {
+        Produit p1 = new Produit(1L, "Car", -20.0, 10);
+        try {
+            produitService.ajouterProduit(p1);
+        } catch (IllegalArgumentException e) {
+            assertEquals("price and quantity needs to be positive", e.getMessage());
+        }
+    }
 }

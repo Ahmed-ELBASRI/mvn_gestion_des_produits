@@ -64,4 +64,13 @@ public class TestClass extends TestCase {
             assertEquals("product doesn't existe", e.getMessage());
         }
     }
+    
+    @Test
+    public void testSupprimerProduitParId() {
+        Produit p1 = new Produit(1L, "Car", 20.0, 10);
+        produitService.ajouterProduit(p1);
+
+        produitService.deleteProduit(1L);
+        assertEquals(0, produitService.getAllProduct().size());
+    }
 }

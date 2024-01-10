@@ -39,4 +39,19 @@ public class TestClass extends TestCase {
             assertEquals("price and quantity needs to be positive", e.getMessage());
         }
     }
+    
+    @Test
+    public void testMettreAjourProduit() {
+        Produit p1 = new Produit(1L, "Car", 20.0, 10);
+        produitService.ajouterProduit(p1);
+
+        Produit updatedP1 = new Produit(1L, "Updated Car", 25.0, 15);
+        produitService.mettreAjourProduit(updatedP1);
+
+        Produit retrievedProduct = produitService.findProduit(1L);
+        assertNotNull(retrievedProduct);
+        assertEquals("Updated Car", retrievedProduct.getNom());
+        assertEquals(25.0, retrievedProduct.getPrix(), 0.001);
+        assertEquals(15, retrievedProduct.getQuantite());
+    }
 }

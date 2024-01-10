@@ -54,4 +54,14 @@ public class TestClass extends TestCase {
         assertEquals(25.0, retrievedProduct.getPrix(), 0.001);
         assertEquals(15, retrievedProduct.getQuantite());
     }
+    
+    @Test
+    public void testMettreAjourProduitInexistant() {
+        Produit updatedP1 = new Produit(1L, "Updated Car", 25.0, 15);
+        try {
+            produitService.mettreAjourProduit(updatedP1);
+        } catch (IllegalArgumentException e) {
+            assertEquals("product doesn't existe", e.getMessage());
+        }
+    }
 }

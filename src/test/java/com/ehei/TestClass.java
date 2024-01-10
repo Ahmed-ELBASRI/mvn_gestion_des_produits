@@ -3,7 +3,7 @@ package com.ehei;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-public class TestClass extends TestCase {
+public class TestClass{
 	private ProduitService produitService;
 
     @Before

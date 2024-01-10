@@ -17,4 +17,16 @@ public class TestClass extends TestCase {
         produitService.ajouterProduit(p1);
         assertEquals(1, produitService.getAllProduct().size());
     }
+    
+    @Test
+    public void testAjouterProduitUnicite() {
+        Produit p1 = new Produit(1L, "Car", 20.0, 10);
+        Produit p2 = new Produit(1L, "Bike", 15.0, 8);
+        produitService.ajouterProduit(p1);
+        try {
+            produitService.ajouterProduit(p2);
+        } catch (IllegalArgumentException e) {
+            assertEquals("the product that you are trying to add already exists", e.getMessage());
+        }
+    }
 }

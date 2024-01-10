@@ -1,0 +1,6 @@
+language: java
+jdk:
+  - openjdk19
+
+script:
+  - mvn test
